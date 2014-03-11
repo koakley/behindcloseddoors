@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>Behind Closed Doors</title>
+	<!-- Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references -->
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" media="all" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+
+	<!-- LESS framework stylesheet
+	Should be compiled from style.less
+	I use http://wearekiss.com/simpless for auto-compiling on save
+	-->
+	<link rel="stylesheet" href="lib/style.css" type="text/css" media="screen" title="Primary Stylesheet" charset="utf-8">
+
+	<!-- Bring in animate.css | http://daneden.me/animate/ -->
+	<!--<link rel="stylesheet" href="animate.css" type="text/css" media="screen" title="no title" charset="utf-8"> -->
+
+	<!-- Bring in jQuery first, lots of other stuff depends on it -->
+	<script src="lib/js/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/js/jquery.hoverintent.js" type="text/javascript" charset="utf-8"></script>
+
+	<!-- And underscore | http://documentcloud.github.com/underscore/ -->
+	<script src="lib/js/underscore-min.js" type="text/javascript" charset="utf-8"></script>
+
+	<!-- And D3 | https://github.com/mbostock/d3/wiki/API-Reference -->
+	<script src="lib/js/d3.v2.min.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="lib/js/ICanHaz.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="lib/js/storyjs-embed.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" href="lib/timeline.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+	<script src="lib/js/jquery.scrollorama.js" type="text/javascript" charset="utf-8"></script>
+
+	<!-- bxSlider Javascript file -->
+	<script src="lib/js/jquery.bxslider.js"></script>
+	<!-- bxSlider CSS file -->
+	<link href="lib/jquery.bxslider.css" rel="stylesheet" />
+
+	<!-- And the Open Sans Google Webfont | https://www.google.com/webfonts#UsePlace:use/Collection:Open+Sans
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,700italic,400,700,800,300' rel='stylesheet' type='text/css'> -->
+
+	<link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic|PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+
+	<script src="lib/js/sStory.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" href="lib/style.css" type="text/css" media="screen" title="Primary Stylesheet" charset="utf-8">
+
+
+</head>
+
+<body>
+<div id="nav">
+
+</div>
+<div id="nav-expand">&nbsp;</div>
+
+<div id="container">
+
+</div>
+
+<script id="image" type="text/html">
+<h2>{{{ title }}}</h2>
+</script>
+
+<script id="image2" type="text/html">
+<h2>{{{ title }}}</h2>
+<div class="imagecaption"><p>{{{ caption }}}</p></div>
+</script>
+
+<script id="image3" type="text/html">
+<h2>{{ title }}</h2>
+<div class="imagecaption longcaption"><p>{{{ caption }}}</p></div>
+</script>
+
+<script id="vimeo" type="text/html">
+<div class="video-container">
+<iframe src="{{ url }}" width="400" height="300" frameborder="0" wmode="transparent" webkitAllowFullScreen mozallowfullscreen allowFullScreen><param name="wmode" value="opaque"></iframe>
+</div>
+{{#caption}}
+<div class="video-caption">
+{{caption}}
+</div>
+{{/caption}}
+</script>
+
+<script id="soundcloud" type="text/html">
+<div class="soundcloud-container">
+{{#title}}
+<h2>{{ title }}</h2>
+{{/title}}
+		{{{ embed }}}
+</div>
+</script>
+
+<script id="text" type="text/html">
+<div class="text-container">
+{{#title}}
+<h2>{{ title }}</h2>
+{{/title}}
+
+{{{ text }}}
+</div>
+</script>
+
+<script id="gist" type="text/html">
+{{#title}}
+<h2>{{ title }}</h2>
+{{/title}}
+{{#files}}
+	<div class="gist-container">
+	<h4>{{filename}}</h4>
+	<pre>
+	{{content}}
+	</pre>
+	</div>
+{{/files}}
+</script>
+
+<script id="slideshow" type="text/html">
+{{#title}}
+<h2>{{ title }}</h2>
+{{/title}}
+
+<ul class="slider">
+{{#slides}}
+<li><img src="{{url}}" title="{{caption}}"/></li>
+{{/slides}}
+</ul>
+</script>
+
+<script id="navbarsection" type="text/html">
+<a class="nav-section" href="#section-{{count}}" id="nav-section-{{count}}"><img src="lib/images/type_icons/{{type}}.png" height="18px" width="18px" class="type-icon" /> {{ title }}</a>
+</script>
+
+
+
+<script type="text/javascript" charset="utf-8">
+
+
+// Place section code after the equal sign
+var sections = [
+		{"title":"Behind Closed Doors","type":"image","url":"http://farm3.staticflickr.com/2808/10692876656_1c493d7f6d_k.jpg","caption":"","count":1},
+		{"title":"The Life of a Doorman","type":"text","text":"</br><p>According to New York Magazine, the average salary for a doorman tops out at $32,000. It takes 30 months of work at $25,680 to be eligible for a higher salary.Most, some would say all, doormen are unionized.</p></br><p>Given the rate of pay, it's likely that most doormen don't live anywhere near where they work. The men below live in Queens, the Bronx, Washington Heights, and Yonkers, NY.</p></br><p>However, every single one of these touted the benefits that come with the job, stating good insurance and the ability to support their families as reasons for working as a doorman.The men had worked, often in the same building, from only a few years to a record high of 36 years.</p>","count":2},
+		{"title":"The Traveler","type":"image","url":"http://farm4.staticflickr.com/3829/10692880574_20eee5b4b0_k.jpg","caption":"<p>According to New York Magazine, the average salary for a doorman tops out at $32,000. It takes 30 months of work at $25,680 to be eligible for a higher salary.</p><p>Most, some would say all, doormen are unionized.</p><p>Given the rate of pay, it's likely that most doormen don't live anywhere near where they work. The men below live in Queens, the Bronx, Washington Heights, and Yonkers, NY.</p><p>However, every single one of these touted the benefits that come with the job, stating good insurance and the ability to support their families as reasons for working as a doorman.</p><p>The men had worked, often in the same building, from only a few years to a record high of 36 years.</p>","count":3},
+		{"title":"The Traveler","type":"soundcloud","embed":"<iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/118706175\"></iframe>","count":4},
+		{"title":"The Friends","type":"image","url":"http://farm4.staticflickr.com/3773/10693081373_9d27917283_k.jpg","caption":"According to New York Magazine, the average salary for a doorman tops out at $32,000. It takes 30 months of work at $25,680 to be eligible for a higher salary.\n\nMost, some would say all, doormen are unionized.\n\nGiven the rate of pay, it's likely that most doormen don't live anywhere near where they work. The men below live in Queens, the Bronx, Washington Heights, and Yonkers, NY. \n\nHowever, every single one of these touted the benefits that come with the job, stating good insurance and the ability to support their families as reasons for working as a doorman.\n\nThe men had worked, often in the same building, from only a few years to a record high of 36 years.","count":5},
+		{"title":"The Friends","type":"soundcloud","embed":"<iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/118706177\"></iframe>","count":6},
+		{"title":"The Friends","type":"image","url":"http://farm4.staticflickr.com/3795/10692840725_4a1753ca2a_k.jpg","caption":"According to New York Magazine, the average salary for a doorman tops out at $32,000. It takes 30 months of work at $25,680 to be eligible for a higher salary.\n\nMost, some would say all, doormen are unionized.\n\nGiven the rate of pay, it's likely that most doormen don't live anywhere near where they work. The men below live in Queens, the Bronx, Washington Heights, and Yonkers, NY. \n\nHowever, every single one of these touted the benefits that come with the job, stating good insurance and the ability to support their families as reasons for working as a doorman.\n\nThe men had worked, often in the same building, from only a few years to a record high of 36 years.","count":7},
+		{"title":"The Friends","type":"soundcloud","embed":"<iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/118706176\"></iframe>","count":8},
+		{"title":"The Helper","type":"image","url":"http://farm6.staticflickr.com/5517/10692894996_af9efdd5a7_k.jpg","caption":"According to New York Magazine, the average salary for a doorman tops out at $32,000. It takes 30 months of work at $25,680 to be eligible for a higher salary.\n\nMost, some would say all, doormen are unionized.\n\nGiven the rate of pay, it's likely that most doormen don't live anywhere near where they work. The men below live in Queens, the Bronx, Washington Heights, and Yonkers, NY. \n\nHowever, every single one of these touted the benefits that come with the job, stating good insurance and the ability to support their families as reasons for working as a doorman.\n\nThe men had worked, often in the same building, from only a few years to a record high of 36 years.","count":9},
+		{"title":"The Helper","type":"soundcloud","embed":"<iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/118706180\"></iframe>","count":10},
+		{"title":"The Family Man","type":"image","url":"http://farm8.staticflickr.com/7388/10692833095_1a6b7f1d06_k.jpg","caption":"According to New York Magazine, the average salary for a doorman tops out at $32,000. It takes 30 months of work at $25,680 to be eligible for a higher salary.\n\nMost, some would say all, doormen are unionized.\n\nGiven the rate of pay, it's likely that most doormen don't live anywhere near where they work. The men below live in Queens, the Bronx, Washington Heights, and Yonkers, NY. \n\nHowever, every single one of these touted the benefits that come with the job, stating good insurance and the ability to support their families as reasons for working as a doorman.\n\nThe men had worked, often in the same building, from only a few years to a record high of 36 years.","count":11},
+		{"title":"The Family Man","type":"soundcloud","embed":"<iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/118706174\"></iframe>","count":12},
+		{"title":"   ","type":"image","url":"http://farm6.staticflickr.com/5511/10692879796_99bbfdd2b7_k.jpg","caption":"According to New York Magazine, the average salary for a doorman tops out at $32,000. It takes 30 months of work at $25,680 to be eligible for a higher salary.\n\nMost, some would say all, doormen are unionized.\n\nGiven the rate of pay, it's likely that most doormen don't live anywhere near where they work. The men below live in Queens, the Bronx, Washington Heights, and Yonkers, NY. \n\nHowever, every single one of these touted the benefits that come with the job, stating good insurance and the ability to support their families as reasons for working as a doorman.\n\nThe men had worked, often in the same building, from only a few years to a record high of 36 years.","count":13},
+		{"title":"   ","type":"image","url":"http://farm6.staticflickr.com/5538/10692835585_5dcc583529_k.jpg","caption":"According to New York Magazine, the average salary for a doorman tops out at $32,000. It takes 30 months of work at $25,680 to be eligible for a higher salary.\n\nMost, some would say all, doormen are unionized.\n\nGiven the rate of pay, it's likely that most doormen don't live anywhere near where they work. The men below live in Queens, the Bronx, Washington Heights, and Yonkers, NY. \n\nHowever, every single one of these touted the benefits that come with the job, stating good insurance and the ability to support their families as reasons for working as a doorman.\n\nThe men had worked, often in the same building, from only a few years to a record high of 36 years.","count":14}]
+
+
+$(document).ready(function(){
+	sStory(sections);
+});
+
+
+</script>
+</body>
+</html>
